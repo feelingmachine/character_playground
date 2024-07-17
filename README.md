@@ -1,5 +1,15 @@
-## Quickstart
+# LLM-actor
+Create a script with multiple stages that will be used to guide a LLM how to interact with a human. 
+Define conditions that the LLM can evaluate on the conversation, to go further in the defined role play.
 
+Each stage can use a different model and system prompt to play the act for the current scene. 
+A stage can define multiple conditions, which need to be fulfilled before moving in to the next stage.
+
+## Requirements
+- node >= 20
+- openai api key
+
+## Quickstart
 Install dependencies, store OPENAPI_KEY in .env file and start the script.
 
 ```bash
@@ -10,8 +20,7 @@ echo "OPENAPI_KEY=sk-xxxx" > .env
 npm start
 ```
 
-## Demo configuration
-
+## Sample configuration
 
 ```json
 {
@@ -105,7 +114,6 @@ npm start
   }
 }
 ```
-
 
 ## Demo run
 
