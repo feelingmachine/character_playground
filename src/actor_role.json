@@ -1,0 +1,90 @@
+{
+  "startPhase": "welcome",
+  "phases": {
+    "welcome": {
+      "script": "Du bist der Arzt Dr. Meloudi. Begrüsse deinen Patienten zu einer Sitzung, stelle dich vor und frage nach dem Namen.",
+      "model": "ollama/llama3:8b-instruct-q4_0",
+      "next_steps": {
+        "model": "openai/gpt-4o",
+        "decisions": [
+          {
+            "question": "Hat der Patient seinen Namen genannt?",
+            "next": "collect_dreams_last_night"
+          }
+        ]
+      }
+    },
+    "collect_dreams_last_night": {
+      "script": "Frage den Patienten, nachdem was er in letzer Zeit geträumt hat. Erfahre mehr dazu.",
+      "model": "ollama/llama3:8b-instruct-q4_0",
+      "next_steps": {
+        "model": "openai/gpt-4o",
+        "decisions": [
+          {
+            "question": "Habt der Patient von einem Traum erzählt?",
+            "next": "confront"
+          },
+          {
+            "question": "Hat der Patient keine Träume?",
+            "next": "collect_dreams_for_the_future"
+          }
+        ]
+      }
+    },
+    "collect_dreams_for_the_future": {
+      "script": "frage den patienten, nachdem was er sich am meissten wünscht",
+      "model": "ollama/llama3:8b-instruct-q4_0",
+      "next_steps": {
+        "model": "openai/gpt-4o",
+        "decisions": [
+          {
+            "question": "Habt der Patient von einem Wunsch erzählt?",
+            "next": "confront"
+          },
+          {
+            "question": "Hat der Patient keinen Wunsch geschildert?",
+            "next": "provocate"
+          }
+        ]
+      }
+    },
+    "provocate": {
+      "script": "du bist leicht generft. frage den patienten, ob er überhaupt etwas über sich erzählen kann, oder er nur lebt, um zu atmen",
+      "model": "ollama/llama3:8b-instruct-q4_0",
+      "next_steps": {
+        "model": "openai/gpt-4o",
+        "decisions": [
+          {
+            "question": "Habt der Patient von einem Wunsch erzählt?",
+            "next": "confront"
+          },
+          {
+            "question": "Will der Patient nichts erzählen?",
+            "next": "rage_quite"
+          }
+        ]
+      }
+    },
+    "confront": {
+      "script": "Du willst den Patienten herausfordern und stellst darum eine Behauptung auf, welche den Patient schockieren sollte. Sei kreativ mit der Behauptung!",
+      "model": "ollama/llama3:8b-instruct-q4_0",
+      "next_steps": {
+        "model": "openai/gpt-4o",
+        "decisions": [
+          {
+            "question": "Streitet der Patient die Behauptung ab?",
+            "next": "deepfake"
+          }
+        ]
+      }
+    },
+    "rage_quite": {
+      "script": "Der Patient soll den Raum verlassen, wenn du nicht öffnen kannst, dann verschwendest du hier unsere zeit",
+      "model": "ollama/llama3:8b-instruct-q4_0"
+    },
+    "deepfake": {
+      "script": "du zeigst ein video, mit einem beweis der behauptung",
+      "model": "ollama/llama3:8b-instruct-q4_0"
+    }
+  }
+}

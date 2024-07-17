@@ -1,0 +1,22 @@
+{
+  "name": "gpt-actor",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "tsx src/index.ts"
+  },
+  "type": "module",
+  "author": "no0dles",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "ollama": "^0.5.2",
+    "openai": "^4.52.7",
+    "pino": "^9.3.1",
+    "pino-pretty": "^11.2.1"
+  },
+  "devDependencies": {
+    "tsx": "^4.16.2",
+    "typescript": "^5.5.3"
+  }
+}
