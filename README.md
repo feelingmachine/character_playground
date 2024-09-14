@@ -1,5 +1,5 @@
-# LLM-actor
 Create a script with multiple stages that will be used to guide a LLM how to interact with a human. 
+# Character Playground (fork of no0dles/llm-actor)
 Define conditions that the LLM can evaluate on the conversation, to go further in the defined role play.
 
 Each stage can use a different model and system prompt to play the act for the current scene. 
